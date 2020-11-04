@@ -6,7 +6,7 @@ const helmet = require('helmet');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { celebrate, Joi, errors } = require('celebrate');
-const router = require('./routes/index');
+const routes = require('./routes/index');
 const { limiter } = require('./middlewares/rate-limit');
 const { auth } = require('./middlewares/auth');
 const { CentralizedErrorHandler } = require('./middlewares/centralized-error-handler');
@@ -56,7 +56,7 @@ app.post('/signup', celebrate({
 
 app.use(auth); // все роуты ниже этой строки будут защищены
 
-app.use('/', router);
+app.use('/', routes);
 
 app.use(errorLogger); // подключаем логгер ошибок
 
