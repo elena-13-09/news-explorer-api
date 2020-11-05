@@ -14,8 +14,7 @@ const { createUser, login } = require('./controllers/users');
 const NotFoundError = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-// Слушаем 3000 порт
-const { PORT = 3000 } = process.env;
+const { PORT = 4000 } = process.env;
 
 const app = express();
 // подключаемся к серверу mongo
