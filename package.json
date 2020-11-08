@@ -1,7 +1,7 @@
 {
-  "name": "react-mesto-api-full",
+  "name": "news-explorer-api",
   "version": "1.0.0",
-  "description": "Учебный проект, выполненный на курсе Вэб-разработчик от Яндекс.Практикум",
+  "description": "Дипломный проект, выполненный на курсе Вэб-разработчик от Яндекс.Практикум",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elena-13-09/react-mesto-api-full.git"
+    "url": "git+https://github.com/elena-13-09/news-explorer-api.git"
   },
   "keywords": [],
   "author": "Elena Goreva",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/elena-13-09/react-mesto-api-full/issues"
+    "url": "https://github.com/elena-13-09/news-explorer-api/issues"
   },
-  "homepage": "https://github.com/elena-13-09/react-mesto-api-full/",
+  "homepage": "https://github.com/elena-13-09/news-explorer-api/",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",

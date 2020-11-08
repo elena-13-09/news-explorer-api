@@ -19,8 +19,8 @@ router.get('/', getArticle);
 router.post('/', celebrate({
   body: Joi.object().keys({
     keyword: Joi.string().required(),
+    title: Joi.string().required(),
     text: Joi.string().required(),
-    name: Joi.string().required().min(2).max(30),
     date: Joi.string().required(),
     source: Joi.string().required(),
     link: Joi.string().required().custom(validatorURL),

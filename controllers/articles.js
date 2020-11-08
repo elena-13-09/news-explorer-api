@@ -2,6 +2,7 @@ const Article = require('../models/article');
 const NotFoundError = require('../errors/not-found-err');
 const ValidationError = require('../errors/validation-err');
 const OwnerError = require('../errors/owner-err');
+const { OWNER_ERROR, ARTICLE_NOT_FOUND_ERROR } = require('../configs/constants');
 
 const getArticle = (req, res, next) => {
   Article.find({})
@@ -12,8 +13,8 @@ const getArticle = (req, res, next) => {
 const createArticle = (req, res, next) => {
   const {
     keyword,
+    title,
     text,
-    name,
     date,
     source,
     link,
@@ -21,8 +22,8 @@ const createArticle = (req, res, next) => {
   } = req.body;
   Article.create({
     keyword,
+    title,
     text,
-    name,
     date,
     source,
     link,
@@ -40,14 +41,15 @@ const createArticle = (req, res, next) => {
 };
 
 const deleteArticle = (req, res, next) => {
-  Article.findById(req.params.articleId)
+  const { articleId } = req.params;
+  Article.findById({ _id: articleId })
     .then((article) => {
       if (!article) {
-        throw new NotFoundError('Статья не найдена');
+        throw new NotFoundError(ARTICLE_NOT_FOUND_ERROR);
       } else if (article.owner.toString() !== req.user._id) {
-        throw new OwnerError('Нельзя удалить статью другого пользователя');
+        throw new OwnerError(OWNER_ERROR);
       } else {
-        Article.findByIdAndDelete(req.params.articleId)
+        Article.deleteOne({ _id: articleId })
           .then(() => res.send({ message: 'Статья удалена' }));
       }
     })

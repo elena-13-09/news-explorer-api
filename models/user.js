@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const isEmail = require('validator/lib/isEmail');
 const AuthorizationError = require('../errors/authorization-err');
+const { INCORRECT_DATA_ERROR } = require('../configs/constants');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -32,13 +33,13 @@ userSchema.statics.findUserByCredentials = function (email, password) {
     .then((user) => {
       // не нашёлся — отклоняем промис
       if (!user) {
-        throw new AuthorizationError('Неправильные почта или пароль');
+        throw new AuthorizationError(INCORRECT_DATA_ERROR);
       }
       // нашёлся — сравниваем хеши
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            throw new AuthorizationError('Неправильные почта или пароль');
+            throw new AuthorizationError(INCORRECT_DATA_ERROR);
           }
 
           return user; // теперь user доступен
