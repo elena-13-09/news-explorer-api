@@ -6,6 +6,7 @@ const OWNER_ERROR = 'Нельзя удалить статью другого п�
 const ARTICLE_NOT_FOUND_ERROR = 'Статья не найдена';
 const AUTHORIZATION_ERROR = 'Необходима авторизация';
 const INCORRECT_DATA_ERROR = 'Неправильные почта или пароль';
+const ARTICLE_DELETE = 'Статья удалена';
 
 module.exports = {
   SERVER_ERROR,
@@ -16,4 +17,5 @@ module.exports = {
   ARTICLE_NOT_FOUND_ERROR,
   AUTHORIZATION_ERROR,
   INCORRECT_DATA_ERROR,
+  ARTICLE_DELETE,
 };

@@ -2,7 +2,7 @@ const Article = require('../models/article');
 const NotFoundError = require('../errors/not-found-err');
 const ValidationError = require('../errors/validation-err');
 const OwnerError = require('../errors/owner-err');
-const { OWNER_ERROR, ARTICLE_NOT_FOUND_ERROR } = require('../configs/constants');
+const { OWNER_ERROR, ARTICLE_NOT_FOUND_ERROR, ARTICLE_DELETE } = require('../configs/constants');
 
 const getArticle = (req, res, next) => {
   Article.find({})
@@ -50,7 +50,7 @@ const deleteArticle = (req, res, next) => {
         throw new OwnerError(OWNER_ERROR);
       } else {
         Article.deleteOne({ _id: articleId })
-          .then(() => res.send({ message: 'Статья удалена' }));
+          .then(() => res.send({ message: ARTICLE_DELETE }));
       }
     })
     .catch(next);
