@@ -3,10 +3,12 @@
 *Репозиторий для API проекта News Explorer, включающий авторизацию и регистрацию пользователей, создание, получение и удаление новостных карточек.* 
 
 ### Домен: 
-***https://api.diploma.students.nomoreparties.space***
+***https://api.egoreva.students.nomoreparties.space***
 
 ### Публичный IP-адрес: 
 ***130.193.51.189***
+
+### [Ссылка](https://github.com/elena-13-09/news-explorer-frontend) на репозиторий фронтенда
 
 ### Для создания применялись технологии
 
