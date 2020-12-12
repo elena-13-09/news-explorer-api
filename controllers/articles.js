@@ -5,7 +5,7 @@ const OwnerError = require('../errors/owner-err');
 const { OWNER_ERROR, ARTICLE_NOT_FOUND_ERROR, ARTICLE_DELETE } = require('../configs/constants');
 
 const getArticle = (req, res, next) => {
-  Article.find({})
+  Article.find({ owner: req.user._id })
     .then((articles) => res.send(articles))
     .catch(next);
 };
